@@ -28,7 +28,7 @@ require_once('./lib/send_mail.php');
 
 ?>
 
-  <link rel="stylesheet" type="text/css" href="<?php echo $base_url;?>/css/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $base_url;?>/css/style.css">
 
 <div class="contact-form wrapper">
 <h1><?php echo $lang_translate['Contact form']; ?></h1>
@@ -65,5 +65,36 @@ require_once('./lib/send_mail.php');
 </div>
 
 <script src="<?php echo $base_url;?>/vendor/validatejs/validate.min.js"></script>
-<script src="<?php echo $base_url;?>/js/main.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang_code; ?>"></script>
+<script type="text/javascript">
+//validate.js validation rules
+//see http://rickharrison.github.io/validate.js/
+  var validator = new FormValidator('contact_form', [{
+  name: 'subject',
+    display: "<?php $lang_translate['Subject'] ?>",
+    rules: 'required'
+  }, {
+  name: 'email',
+    display: "<?php $lang_translate['Email'] ?>",
+    rules: 'required|valid_email'
+  }, {
+  name: 'message',
+    display: "<?php $lang_translate['Message'] ?>",
+    rules: 'required'
+  }],
+  function(errors, evt) {
+    if (errors.length > 0) {
+      var errorString = '';
+      for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
+        errorString += errors[i].message + '<br />';
+      }
+      if (evt && evt.preventDefault) {
+        evt.preventDefault();
+      } else if (event) {
+        event.returnValue = false;
+      }
+      document.getElementById("response-message").innerHTML = '<div class="error">'+errorString+'</div>';
+      console.dir(errors);
+    }
+  });
+</script>
