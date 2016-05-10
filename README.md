@@ -1,10 +1,11 @@
 #Contact form with reCAPTCHA validation
 
-PHP contact form with Google [reCAPTCHA](https://www.google.com/recaptcha).
+PHP contact form with [Google reCAPTCHA](https://www.google.com/recaptcha) test.
 
-* subject, email and message field
-* HTML5 'required' field validation
-* [validate.js](http://rickharrison.github.io/validate.js/) field validation fallback/extension
+##Features
+
+* HTML5 'required' field validation (subject, email and message)
+* [validate.js](http://rickharrison.github.io/validate.js/) form validation fallback/extension
 * vanilla JS, no jQuery dependencies
 * translation files support
 

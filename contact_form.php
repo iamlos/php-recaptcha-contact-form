@@ -1,10 +1,6 @@
 <?php
 
-$base_dir  = __DIR__;
-$doc_root  = preg_replace("!${_SERVER['SCRIPT_NAME']}$!", '', $_SERVER['SCRIPT_FILENAME']);
-$base_url  = preg_replace("!^${doc_root}!", '', $base_dir);
-
-//===Editable variables===
+//===Editable variables===//
 
 //Language code for including translation file and reCAPTCHA language
 //see https://developers.google.com/recaptcha/docs/language
@@ -21,7 +17,11 @@ $subject_prefix = 'yourdomain.com';
 $sitekey = 'your_recaptcha_site_key';
 $secretkey = 'your_recaptcha_secret_key';
 
-//===Editable variables END===
+//===Editable variables END===//
+
+$base_dir  = __DIR__;
+$doc_root  = preg_replace("!${_SERVER['SCRIPT_NAME']}$!", '', $_SERVER['SCRIPT_FILENAME']);
+$base_url  = preg_replace("!^${doc_root}!", '', $base_dir);
 
 include_once('./lang/'.$lang_code.'.php');
 require_once('./lib/send_mail.php');
