@@ -1,4 +1,4 @@
-#Contact form with reCAPTCHA validation
+#Contact form with Google reCAPTCHA
 
 PHP contact form with [Google reCAPTCHA](https://www.google.com/recaptcha) test.
 
